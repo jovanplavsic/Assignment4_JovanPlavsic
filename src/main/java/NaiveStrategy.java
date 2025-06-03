@@ -1,8 +1,8 @@
-public class NaiveStrategy implements DrawingStrategy{
+public class NaiveStrategy implements DrawingStrategy {
     @Override
     public void drawLine(Matrix m, double x0, double y0, double x1, double y1) {
-        // If not a vertical line
-        if (x0 == x1){
+        // If a vertical line
+        if (x0 == x1) {
             double startY = Math.min(y0, y1);
             double endY = Math.max(y0, y1);
             for (int r = (int) Math.ceil(startY); r <= (int) Math.floor(endY); r++) {
@@ -11,5 +11,14 @@ public class NaiveStrategy implements DrawingStrategy{
             return;
         }
 
+        // If not a vertical line
+        double slope = (y1 - y0) / (x1 - x0);
+        double startX = Math.min(x0, x1);
+        double endX = Math.max(x0, x1);
+
+        for (int c = (int) Math.ceil(startX); c <= (int) Math.floor(endX); c++) {
+            double y = y0 + slope * (c - x0);
+            m.setCell(c, (int) Math.round(y), '#');
+        }
     }
 }
