@@ -9,7 +9,7 @@ public class Turtle {
     private int col;
     private double dir;
     private Pen pen;
-    private Matrix matrix;
+    public Matrix matrix;
 
     public Turtle(int row, int col) {
         this.dir = 0.0;
@@ -17,5 +17,22 @@ public class Turtle {
         this.col = col;
         this.pen = new Pen(new BresenhamStrategy(), '#');
         this.matrix = new Matrix(row, col);
+    }
+
+    public int getCol(){
+        return this.col;
+    }
+
+    public int getRow(){
+        return this.row;
+    }
+
+    public double getDir(){
+        return this.dir;
+    }
+
+    public void setPosition(double newRow, double newCol){
+        this.row = (int) Math.round(newRow);
+        this.col = (int) Math.round(newCol);
     }
 }

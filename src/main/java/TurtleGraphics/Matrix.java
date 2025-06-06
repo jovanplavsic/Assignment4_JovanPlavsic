@@ -35,8 +35,7 @@ public class Matrix {
     }
 
 
-    public void clear() { }
-
-        private int[][] data;
+    public void clear() {
+    }
 
 }
