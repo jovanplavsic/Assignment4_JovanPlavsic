@@ -73,7 +73,9 @@ public class REPL {
 
                 case "turn":
                     System.out.println("TURN");
-                    commandObject = new Turn();
+                    double angle = Double.parseDouble(inputParts[1]);
+
+                    commandObject = new Turn(angle);
                     break;
 
                 default:

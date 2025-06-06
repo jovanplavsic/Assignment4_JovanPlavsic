@@ -17,14 +17,14 @@ public class Trace implements Command {
         this.col = turtle.getCol();
 
         double rad = Math.toRadians(turtle.getDir());
-        double newCol = Math.cos(rad) * distance;
-        double newRow = Math.sin(rad) * distance;
+        double distC = Math.cos(rad) * distance;
+        double distR = Math.sin(rad) * distance;
 
         turtle.pen.penDown();
-        turtle.pen.draw(turtle.matrix, this.row, this.col, newRow, newCol);
-        turtle.setPosition(this.row + newRow, this.col + newCol);
+        turtle.pen.draw(turtle.matrix, this.row, this.col, this.row + distR, this.col + distC);
+        turtle.setPosition(this.row + distR, this.col + distC);
         turtle.pen.penUp();
-    };
+    }
 
     @Override
     public void undo(Turtle turtle){};

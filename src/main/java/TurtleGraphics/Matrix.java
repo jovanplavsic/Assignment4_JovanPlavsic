@@ -16,7 +16,7 @@ public class Matrix {
         this.cols = cols;
         this.matrix = new char[rows][cols];
 
-        System.out.println("Set matrix to all O");
+//        System.out.println("Set matrix to all O");
         for (int r = 0; r < rows; r++) {
             Arrays.fill(matrix[r], 'O');
         }

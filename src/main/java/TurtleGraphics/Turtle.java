@@ -40,4 +40,8 @@ public class Turtle {
         this.col = (int) Math.round(newCol);
         matrix.setCell(this.row, this.col, '@');
     }
+
+    public void setDirection(double newDir){
+        this.dir = newDir;
+    }
 }
