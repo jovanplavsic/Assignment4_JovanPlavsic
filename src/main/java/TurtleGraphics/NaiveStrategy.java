@@ -1,3 +1,5 @@
+package TurtleGraphics;
+
 public class NaiveStrategy implements DrawingStrategy {
     @Override
     public void drawLine(Matrix m, double x0, double y0, double x1, double y1) {

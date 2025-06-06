@@ -1,3 +1,5 @@
+package TurtleGraphics;
+
 public class Pen {
     private DrawingStrategy strat;
     private char symbol;

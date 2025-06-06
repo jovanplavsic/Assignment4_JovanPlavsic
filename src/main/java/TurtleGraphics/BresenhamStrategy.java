@@ -1,3 +1,5 @@
+package TurtleGraphics;
+
 public class BresenhamStrategy implements DrawingStrategy {
 
     @Override
