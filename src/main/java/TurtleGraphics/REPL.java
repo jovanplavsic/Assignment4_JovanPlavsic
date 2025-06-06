@@ -1,8 +1,6 @@
 package TurtleGraphics;
 
-import TurtleGraphics.Commands.Command;
-import TurtleGraphics.Commands.Quit;
-import TurtleGraphics.Commands.Show;
+import TurtleGraphics.Commands.*;
 
 import java.util.Scanner;
 
@@ -33,6 +31,7 @@ public class REPL {
 
 
     public static void main(String[] args) {
+        Turtle turtle = new Turtle(10, 10);
         Scanner input = new Scanner(System.in);
         boolean running = true;
 
@@ -55,16 +54,24 @@ public class REPL {
 
                 case "move":
                     System.out.println("MOVE");
+                    commandObject = new Move();
                     break;
+
                 case "trace":
                     System.out.println("TRACE");
+                    commandObject = new Trace();
                     break;
                 case "turn":
                     System.out.println("TURN");
+                    commandObject = new Turn();
                     break;
+
                 default:
-                    System.out.println("Commands.Command not found");
+                    System.out.println("Command not found");
             }
+            commandObject.execute(turtle);
         }
+        input.close();
+        System.out.println("Ended Graphics Editor");
     }
 }
