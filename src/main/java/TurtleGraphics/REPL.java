@@ -36,10 +36,15 @@ public class REPL {
         boolean running = true;
 
         while (running) {
-            String line = input.nextLine();
+            String line = input.nextLine().trim();
 
-            String command = line.trim().toLowerCase();
+            String[] inputParts = line.split("\\s+");
+
+            String command = inputParts[0].toLowerCase();
+
             Command commandObject = null;
+
+
             switch (command) {
                 case "quit":
                     System.out.println("QUIT");
@@ -54,7 +59,9 @@ public class REPL {
 
                 case "move":
                     System.out.println("MOVE");
-                    commandObject = new Move();
+                    int distance = Integer.parseInt(inputParts[1]);
+
+                    commandObject = new Move(distance);
                     break;
 
                 case "trace":
@@ -68,6 +75,7 @@ public class REPL {
 
                 default:
                     System.out.println("Command not found");
+                    continue;
             }
             commandObject.execute(turtle);
         }

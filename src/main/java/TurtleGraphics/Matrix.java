@@ -1,5 +1,7 @@
 package TurtleGraphics;
 
+import java.util.Arrays;
+
 public class Matrix {
     private final int rows;
     private final int cols;
@@ -13,6 +15,11 @@ public class Matrix {
         this.rows = rows;
         this.cols = cols;
         this.matrix = new char[rows][cols];
+
+        for (int r = 0; r < rows; r++) {
+            // Fill the entire row array with spaces
+            Arrays.fill(matrix[r], 'O');
+        }
     }
 
     public void setCell(int row, int col, char c) {

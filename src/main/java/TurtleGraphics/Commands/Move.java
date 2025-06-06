@@ -16,13 +16,13 @@ public class Move implements Command {
 
     @Override
     public void execute(Turtle turtle){
+
         this.row = turtle.getRow();
         this.col = turtle.getCol();
 
         double rad = Math.toRadians(turtle.getDir());
         double newCol = Math.cos(rad) * distance;
         double newRow = Math.sin(rad) * distance;
-
 
         turtle.setPosition(this.row + newRow, this.col + newCol);
     };

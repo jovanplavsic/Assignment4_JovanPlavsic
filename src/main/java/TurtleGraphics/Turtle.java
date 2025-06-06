@@ -13,10 +13,11 @@ public class Turtle {
 
     public Turtle(int row, int col) {
         this.dir = 0.0;
-        this.row = row;
-        this.col = col;
+        this.row = 0;
+        this.col = 0;
         this.pen = new Pen(new BresenhamStrategy(), '#');
         this.matrix = new Matrix(row, col);
+        matrix.setCell(this.row, this.col, '@');
     }
 
     public int getCol(){
@@ -32,7 +33,9 @@ public class Turtle {
     }
 
     public void setPosition(double newRow, double newCol){
+        matrix.setCell(this.row, this.col, '0');
         this.row = (int) Math.round(newRow);
         this.col = (int) Math.round(newCol);
+        matrix.setCell(this.row, this.col, '@');
     }
 }
