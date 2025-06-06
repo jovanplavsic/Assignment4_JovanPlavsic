@@ -9,11 +9,13 @@ public class Turtle {
     private int col;
     private double dir;
     private Pen pen;
+    private Matrix matrix;
 
     public Turtle(int row, int col) {
         this.dir = 0.0;
         this.row = row;
         this.col = col;
         this.pen = new Pen(new BresenhamStrategy(), '#');
+        this.matrix = new Matrix(row, col);
     }
 }
