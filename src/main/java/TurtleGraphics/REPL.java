@@ -66,8 +66,11 @@ public class REPL {
 
                 case "trace":
                     System.out.println("TRACE");
-                    commandObject = new Trace();
+                    int distanceT = Integer.parseInt(inputParts[1]);
+
+                    commandObject = new Trace(distanceT);
                     break;
+
                 case "turn":
                     System.out.println("TURN");
                     commandObject = new Turn();

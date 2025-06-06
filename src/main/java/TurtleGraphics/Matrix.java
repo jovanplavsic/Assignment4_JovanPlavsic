@@ -16,8 +16,8 @@ public class Matrix {
         this.cols = cols;
         this.matrix = new char[rows][cols];
 
+        System.out.println("Set matrix to all O");
         for (int r = 0; r < rows; r++) {
-            // Fill the entire row array with spaces
             Arrays.fill(matrix[r], 'O');
         }
     }

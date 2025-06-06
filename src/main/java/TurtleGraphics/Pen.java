@@ -27,8 +27,13 @@ public class Pen {
         this.isDown = true;
     }
 
+    public boolean isDown(){
+        return this.isDown;
+    }
+
     public void draw(Matrix m, double x0, double y0, double x1, double y1){
         if (this.isDown) {
+            System.out.println("Drawing...");
             strat.drawLine(m, x0, y0, x1, y1);
         }
     }

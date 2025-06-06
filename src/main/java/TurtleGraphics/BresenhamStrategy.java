@@ -14,6 +14,7 @@ public class BresenhamStrategy implements DrawingStrategy {
         double y = y0;
 
         while (x != x1 || y != y1) {
+            System.out.println("#");
             m.setCell((int) x, (int) y, '#');
             double e2 = 2 * error;
             if (e2 >= dy) {
@@ -27,5 +28,6 @@ public class BresenhamStrategy implements DrawingStrategy {
                 y += sy;
             }
         }
+        m.display();
     }
 }

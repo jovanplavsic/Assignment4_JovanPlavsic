@@ -8,7 +8,7 @@ public class Turtle {
     private int row;
     private int col;
     private double dir;
-    private Pen pen;
+    public Pen pen;
     public Matrix matrix;
 
     public Turtle(int row, int col) {
@@ -33,7 +33,9 @@ public class Turtle {
     }
 
     public void setPosition(double newRow, double newCol){
-        matrix.setCell(this.row, this.col, '0');
+        if (!pen.isDown()){
+            matrix.setCell(this.row, this.col, 'O');
+        }
         this.row = (int) Math.round(newRow);
         this.col = (int) Math.round(newCol);
         matrix.setCell(this.row, this.col, '@');
