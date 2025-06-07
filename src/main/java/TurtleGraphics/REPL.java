@@ -1,3 +1,9 @@
+//------------------------------------------------------
+// Assignment 4
+// Written by: Jovan Plavsic 230417
+// For SES350 Section 602 – Spring 2025
+//--------------------------------------------------------
+
 package TurtleGraphics;
 
 import TurtleGraphics.Commands.*;
@@ -7,30 +13,6 @@ import java.util.Deque;
 import java.util.Scanner;
 
 public class REPL {
-    //quit: exit the TurtleGraphics.Commands.REPL
-    //• show: print the current drawing to the command line
-    //• move x: move the turtle with the pen up (not drawing) x distance in the current direction
-    //• trace x: move the turtle with the pen down (drawing) x distance in the current direction
-    //• turn x: turn the turtle by x degrees
-
-//    private final int rows;
-//    private final int cols;
-//    private final TurtleGraphics.Commands.Matrix matrix;
-//    private int x;
-//    private int y;
-//    private double dir;
-//    private boolean running;
-//
-//    public TurtleGraphics.Commands.REPL(int rows, int cols) {
-//        this.rows = rows;
-//        this.cols = cols;
-//        this.matrix = new TurtleGraphics.Commands.Matrix(rows, cols);
-//        this.x = cols / 2;
-//        this.y = rows / 2;
-//        this.dir = 0.0;
-//        this.running = true;
-//    }
-
 
     public static void main(String[] args) {
         Turtle turtle = new Turtle(2, 2);
