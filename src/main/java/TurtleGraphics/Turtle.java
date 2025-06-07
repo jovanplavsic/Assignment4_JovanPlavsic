@@ -51,4 +51,16 @@ public class Turtle {
     public void setDirection(double newDir) {
         this.dir = newDir;
     }
+
+    public Memento saveVersion() {
+
+        String[][] copy = new String[matrix.rows][matrix.cols];
+
+        for (int r = 0; r < matrix.rows; r++) {
+            for (int c = 0; c < matrix.cols; c++) {
+                copy[r][c] = matrix.getCell(r, c);
+            }
+        }
+        return new Memento(this.row, this.col, this.dir, copy);
+    }
 }

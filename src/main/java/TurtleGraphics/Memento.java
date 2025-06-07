@@ -1,24 +1,24 @@
 package TurtleGraphics;
 
 public class Memento {
-    private final double x;
-    private final double y;
+    private final double row;
+    private final double col;
     private final double angle;
     private final String[][] matrixVersions;
 
-    public Memento(double x, double y, double angle, String[][] canvasSnapshot) {
-        this.x = x;
-        this.y = y;
+    public Memento(int row, int col, double angle, String[][] canvasSnapshot) {
+        this.row = row;
+        this.col = col;
         this.angle = angle;
         this.matrixVersions = canvasSnapshot;
     }
 
-    public double getX() {
-        return x;
+    public double getRow() {
+        return row;
     }
 
-    public double getY() {
-        return y;
+    public double getCol() {
+        return col;
     }
 
     public double getAngle() {
