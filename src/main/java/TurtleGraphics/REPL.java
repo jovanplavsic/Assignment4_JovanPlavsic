@@ -33,7 +33,7 @@ public class REPL {
 
 
     public static void main(String[] args) {
-        Turtle turtle = new Turtle(10, 10);
+        Turtle turtle = new Turtle(2, 2);
         Scanner input = new Scanner(System.in);
         Deque<Memento> undoStack = new ArrayDeque<>();
         Deque<Memento> redoStack = new ArrayDeque<>();
