@@ -24,4 +24,9 @@ public class NaiveStrategy implements DrawingStrategy {
         }
         m.display();
     }
+
+    @Override
+    public String getStrat(){
+        return "Naive";
+    }
 }

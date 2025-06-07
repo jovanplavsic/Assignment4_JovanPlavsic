@@ -5,13 +5,7 @@ public class Pen {
     private String symbol;
     private boolean isDown;
 
-    public Pen(BresenhamStrategy strat, String symbol) {
-        this.strat = strat;
-        this.symbol = symbol;
-        this.isDown = false;
-    }
-
-    public Pen(NaiveStrategy strat, String symbol) {
+    public Pen(DrawingStrategy strat, String symbol) {
         this.strat = strat;
         this.symbol = symbol;
         this.isDown = false;
@@ -21,8 +15,16 @@ public class Pen {
         this.strat = strat;
     }
 
-    public void setBrush(char brush){
-        this.symbol = symbol;
+    public String getStrategy(){
+        return this.strat.getStrat();
+    }
+
+    public void setBrush(String brush){
+        this.symbol = brush;
+    }
+
+    public String getBrush(){
+        return this.symbol;
     }
 
     public void penUp(){

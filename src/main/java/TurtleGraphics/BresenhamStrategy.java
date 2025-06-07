@@ -30,4 +30,9 @@ public class BresenhamStrategy implements DrawingStrategy {
         }
         m.display();
     }
+
+    @Override
+    public String getStrat(){
+        return "Bresenham";
+    }
 }
