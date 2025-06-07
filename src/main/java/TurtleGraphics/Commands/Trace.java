@@ -34,7 +34,5 @@ public class Trace implements Command {
         turtle.setPosition(newRow, newCol);
     }
 
-    @Override
-    public void undo(Turtle turtle){};
 }
 

@@ -8,7 +8,5 @@ public class Show implements Command {
         turtle.matrix.display();
     };
 
-    @Override
-    public void undo(Turtle turtle){};
 }
 

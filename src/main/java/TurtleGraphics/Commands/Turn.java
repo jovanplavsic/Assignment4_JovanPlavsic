@@ -15,7 +15,5 @@ public class Turn implements Command {
         turtle.setDirection(newDir);
     };
 
-    @Override
-    public void undo(Turtle turtle){};
 }
 

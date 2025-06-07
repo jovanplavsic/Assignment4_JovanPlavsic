@@ -8,6 +8,4 @@ public class Quit implements Command {
         System.out.println("Ended REPL");
     };
 
-    @Override
-    public void undo(Turtle turtle){};
 }

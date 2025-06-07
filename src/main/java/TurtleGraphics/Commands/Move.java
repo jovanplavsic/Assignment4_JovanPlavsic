@@ -33,11 +33,5 @@ public class Move implements Command {
         turtle.setPosition(newRow, newCol);
         turtle.pen.penUp();
     }
-
-    @Override
-    public void undo(Turtle turtle) {
-        turtle.setPosition(this.row, this.col);
-    }
-
 }
 
