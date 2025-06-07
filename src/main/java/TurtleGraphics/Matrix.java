@@ -22,6 +22,16 @@ public class Matrix {
         }
     }
 
+    public Matrix(int rows, int cols, String[][] array) {
+        if (rows < 1 || cols < 1) {
+            throw new IllegalArgumentException("Requires at least 1 row and 1 column");
+        }
+
+        this.rows = rows;
+        this.cols = cols;
+        this.matrix = array;
+    }
+
     public void setCell(int row, int col, String c) {
         matrix[row][col] = c;
     }

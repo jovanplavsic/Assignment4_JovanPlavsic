@@ -5,9 +5,9 @@ public class Turtle {
     //two-dimensional location, a direction, and a pen; it is helpful, to represent the turtle location and
     //direction with double. The pen is drawing when it is down, not drawing when it is up.
 
-    private int row;
-    private int col;
-    private double dir;
+    public int row;
+    public int col;
+    public double dir;
     public Pen pen;
     public Matrix matrix;
 
@@ -61,7 +61,8 @@ public class Turtle {
                 copy[r][c] = matrix.getCell(r, c);
             }
         }
-        return new Memento(this.row, this.col, this.dir, this.matrix);
+        Matrix copyMatrix = new Matrix(matrix.rows, matrix.cols, copy);
+        return new Memento(this.row, this.col, this.dir, copyMatrix);
     }
 
     public void restoreVersion(Memento version){

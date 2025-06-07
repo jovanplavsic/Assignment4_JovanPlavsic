@@ -6,11 +6,11 @@ public class Memento {
     private final double dir;
     private final Matrix matrixVersion;
 
-    public Memento(int row, int col, double dir, Matrix canvasSnapshot) {
+    public Memento(int row, int col, double dir, Matrix matrixVersion) {
         this.row = row;
         this.col = col;
         this.dir = dir;
-        this.matrixVersion = canvasSnapshot;
+        this.matrixVersion = matrixVersion;
     }
 
     public int getRow() {
