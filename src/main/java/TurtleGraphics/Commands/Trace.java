@@ -26,11 +26,15 @@ public class Trace implements Command {
         int maxRow = turtle.getMatrix().rows - 1;
         int maxCol = turtle.getMatrix().cols - 1;
 
+        int oldRow = this.row;
+        int oldCol = this.col;
+
         newRow = Math.max(0, Math.min(newRow, maxRow));
         newCol = Math.max(0, Math.min(newCol, maxCol));
 
+        turtle.setPosition(newRow, newCol);
         turtle.pen.penDown();
-        turtle.pen.draw(turtle.matrix, this.col, this.row, newCol, newRow);
+        turtle.pen.draw(turtle.matrix, oldCol, oldRow, newCol, newRow);
         turtle.setPosition(newRow, newCol);
     }
 
