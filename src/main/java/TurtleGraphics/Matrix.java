@@ -3,9 +3,9 @@ package TurtleGraphics;
 import java.util.Arrays;
 
 public class Matrix {
-    private final int rows;
-    private final int cols;
-    private final char[][] matrix;
+    public final int rows;
+    public final int cols;
+    private final String[][] matrix;
 
     public Matrix(int rows, int cols) {
         if (rows < 1 || cols < 1) {
@@ -14,20 +14,20 @@ public class Matrix {
 
         this.rows = rows;
         this.cols = cols;
-        this.matrix = new char[rows][cols];
+        this.matrix = new String[rows][cols];
 
 //        System.out.println("Set matrix to all O");
         for (int r = 0; r < rows; r++) {
-            Arrays.fill(matrix[r], 'O');
+            Arrays.fill(matrix[r], "   ");
         }
     }
 
-    public void setCell(int row, int col, char c) {
+    public void setCell(int row, int col, String c) {
         matrix[row][col] = c;
     }
 
 
-    public char getCell(int row, int col) {
+    public String getCell(int row, int col) {
         return matrix[row][col];
     }
 
@@ -41,8 +41,5 @@ public class Matrix {
         }
     }
 
-
-    public void clear() {
-    }
 
 }

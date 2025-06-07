@@ -2,10 +2,10 @@ package TurtleGraphics;
 
 public class Pen {
     private DrawingStrategy strat;
-    private char symbol;
+    private String symbol;
     private boolean isDown;
 
-    public Pen(BresenhamStrategy strat, char symbol) {
+    public Pen(BresenhamStrategy strat, String symbol) {
         this.strat = strat;
         this.symbol = symbol;
         this.isDown = false;
@@ -31,10 +31,11 @@ public class Pen {
         return this.isDown;
     }
 
-    public void draw(Matrix m, double x0, double y0, double x1, double y1){
+    // row
+    public void draw(Matrix m, double row0, double col0, double row1, double col1){
         if (this.isDown) {
             System.out.println("Drawing...");
-            strat.drawLine(m, x0, y0, x1, y1);
+            strat.drawLine(m, col0, row0, col1, row1);
         }
     }
 }

@@ -8,7 +8,7 @@ public class NaiveStrategy implements DrawingStrategy {
             double startY = Math.min(y0, y1);
             double endY = Math.max(y0, y1);
             for (int r = (int) Math.ceil(startY); r <= (int) Math.floor(endY); r++) {
-                m.setCell((int) x0, r, '#');
+                m.setCell((int) x0, r, "#");
             }
             return;
         }
@@ -20,7 +20,7 @@ public class NaiveStrategy implements DrawingStrategy {
 
         for (int c = (int) Math.ceil(startX); c <= (int) Math.floor(endX); c++) {
             double y = y0 + slope * (c - x0);
-            m.setCell(c, (int) Math.round(y), '#');
+            m.setCell(c, (int) Math.round(y), "#");
         }
     }
 }

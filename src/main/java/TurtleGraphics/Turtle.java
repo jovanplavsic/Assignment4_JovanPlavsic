@@ -15,33 +15,40 @@ public class Turtle {
         this.dir = 0.0;
         this.row = 0;
         this.col = 0;
-        this.pen = new Pen(new BresenhamStrategy(), '#');
+        this.pen = new Pen(new BresenhamStrategy(), " # ");
         this.matrix = new Matrix(row, col);
-        matrix.setCell(this.row, this.col, '@');
+        matrix.setCell(this.row, this.col, " @ ");
     }
 
-    public int getCol(){
+    public int getCol() {
         return this.col;
     }
 
-    public int getRow(){
+    public int getRow() {
         return this.row;
     }
 
-    public double getDir(){
+    public double getDir() {
         return this.dir;
     }
 
-    public void setPosition(double newRow, double newCol){
-        if (!pen.isDown()){
-            matrix.setCell(this.row, this.col, 'O');
-        }
-        this.row = (int) Math.round(newRow);
-        this.col = (int) Math.round(newCol);
-        matrix.setCell(this.row, this.col, '@');
+    public Matrix getMatrix() {
+        return this.matrix;
     }
 
-    public void setDirection(double newDir){
+    public void setPosition(double newRow, double newCol) {
+        if (pen.isDown()) {
+            matrix.setCell(this.row, this.col, " # ");
+        } else {
+            matrix.setCell(this.row, this.col, "   ");
+        }
+
+        this.row = (int) Math.round(newRow);
+        this.col = (int) Math.round(newCol);
+        matrix.setCell(this.row, this.col, " @ ");
+    }
+
+    public void setDirection(double newDir) {
         this.dir = newDir;
     }
 }

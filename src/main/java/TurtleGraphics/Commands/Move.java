@@ -10,24 +10,34 @@ public class Move implements Command {
     private int row;
     private int col;
 
-    public Move(int distance){
+    public Move(int distance) {
         this.distance = distance;
     }
 
     @Override
-    public void execute(Turtle turtle){
+    public void execute(Turtle turtle) {
 
         this.row = turtle.getRow();
         this.col = turtle.getCol();
 
         double rad = Math.toRadians(turtle.getDir());
-        double newCol = Math.cos(rad) * distance;
-        double newRow = Math.sin(rad) * distance;
+        double newCol = this.col + Math.cos(rad) * distance;
+        double newRow = this.row + Math.sin(rad) * distance;
 
-        turtle.setPosition(this.row + newRow, this.col + newCol);
-    };
+        int maxRow = turtle.getMatrix().rows - 1;
+        int maxCol = turtle.getMatrix().cols - 1;
+
+        newRow = Math.max(0, Math.min(newRow, maxRow));
+        newCol = Math.max(0, Math.min(newCol, maxCol));
+
+        turtle.setPosition(newRow, newCol);
+        turtle.pen.penUp();
+    }
 
     @Override
-    public void undo(Turtle turtle){};
+    public void undo(Turtle turtle) {
+        turtle.setPosition(this.row, this.col);
+    }
+
 }
 

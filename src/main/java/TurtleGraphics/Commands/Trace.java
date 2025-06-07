@@ -16,14 +16,22 @@ public class Trace implements Command {
         this.row = turtle.getRow();
         this.col = turtle.getCol();
 
-        double rad = Math.toRadians(turtle.getDir());
-        double distC = Math.cos(rad) * distance;
-        double distR = Math.sin(rad) * distance;
+        double radian = Math.toRadians(turtle.getDir());
+        double deltaC = Math.cos(radian) * distance;
+        double deltaR = Math.sin(radian) * distance;
+
+        double newCol = Math.round(this.col + deltaC);
+        double newRow = Math.round(this.row + deltaR);
+
+        int maxRow = turtle.getMatrix().rows - 1;
+        int maxCol = turtle.getMatrix().cols - 1;
+
+        newRow = Math.max(0, Math.min(newRow, maxRow));
+        newCol = Math.max(0, Math.min(newCol, maxCol));
 
         turtle.pen.penDown();
-        turtle.pen.draw(turtle.matrix, this.row, this.col, this.row + distR, this.col + distC);
-        turtle.setPosition(this.row + distR, this.col + distC);
-        turtle.pen.penUp();
+        turtle.pen.draw(turtle.matrix, this.col, this.row, newCol, newRow);
+        turtle.setPosition(newRow, newCol);
     }
 
     @Override
