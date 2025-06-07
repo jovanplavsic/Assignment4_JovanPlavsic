@@ -53,9 +53,8 @@ public class REPL {
             switch (command) {
                 case "quit":
                     System.out.println("QUIT");
-                    commandObject = new Quit();
                     running = false;
-                    break;
+                    continue;
 
                 case "show":
                     System.out.println("SHOW");
