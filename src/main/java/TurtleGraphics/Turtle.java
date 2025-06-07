@@ -10,6 +10,7 @@ public class Turtle {
     public double dir;
     public Pen pen;
     public Matrix matrix;
+    public String prevVal = "   ";
 
     public Turtle(int row, int col) {
         this.dir = 0.0;
@@ -37,14 +38,17 @@ public class Turtle {
     }
 
     public void setPosition(double newRow, double newCol) {
-        if (pen.isDown()) {
-            matrix.setCell(this.row, this.col, " # ");
-        } else {
-            matrix.setCell(this.row, this.col, "   ");
-        }
+        matrix.setCell(this.row, this.col, prevVal);
 
         this.row = (int) Math.round(newRow);
         this.col = (int) Math.round(newCol);
+
+        if (this.pen.isDown()){
+            prevVal = " # ";
+        } else{
+           prevVal = this.getMatrix().getCell(this.row, this.col);
+        }
+
         matrix.setCell(this.row, this.col, " @ ");
     }
 

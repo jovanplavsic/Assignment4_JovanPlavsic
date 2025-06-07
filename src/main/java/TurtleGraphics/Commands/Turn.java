@@ -13,7 +13,7 @@ public class Turn implements Command {
     public void execute(Turtle turtle){
         double newDir = (turtle.getDir() + angle) % 360.0;
         turtle.setDirection(newDir);
-    };
+    }
 
 }
 
