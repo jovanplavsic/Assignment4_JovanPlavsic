@@ -11,6 +11,12 @@ public class Pen {
         this.isDown = false;
     }
 
+    public Pen(NaiveStrategy strat, String symbol) {
+        this.strat = strat;
+        this.symbol = symbol;
+        this.isDown = false;
+    }
+
     public void setStrategy(DrawingStrategy strat) {
         this.strat = strat;
     }
@@ -34,7 +40,6 @@ public class Pen {
     // row
     public void draw(Matrix m, double row0, double col0, double row1, double col1){
         if (this.isDown) {
-            System.out.println("Drawing...");
             strat.drawLine(m, col0, row0, col1, row1);
         }
     }

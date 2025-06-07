@@ -12,14 +12,15 @@ public class Turtle {
     public Matrix matrix;
     public String prevVal = "   ";
 
-    public Turtle(int row, int col) {
+    public Turtle(int rows, int cols) {
         this.dir = 0.0;
         this.row = 0;
         this.col = 0;
-        this.pen = new Pen(new BresenhamStrategy(), " # ");
-        this.matrix = new Matrix(row, col);
+        this.pen = new Pen(new NaiveStrategy(), " # ");
+        this.matrix = new Matrix(rows, cols);
         matrix.setCell(this.row, this.col, " @ ");
     }
+
 
     public int getCol() {
         return this.col;
