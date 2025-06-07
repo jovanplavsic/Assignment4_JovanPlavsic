@@ -61,6 +61,13 @@ public class Turtle {
                 copy[r][c] = matrix.getCell(r, c);
             }
         }
-        return new Memento(this.row, this.col, this.dir, copy);
+        return new Memento(this.row, this.col, this.dir, this.matrix);
+    }
+
+    public void restoreVersion(Memento version){
+        this.col = version.getCol();
+        this.row = version.getRow();
+        this.dir = version.getDir();
+        this.matrix = version.getMatrixVersion();
     }
 }
