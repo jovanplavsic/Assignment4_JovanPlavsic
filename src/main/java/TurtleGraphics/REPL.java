@@ -17,6 +17,10 @@ public class REPL {
     public static void main(String[] args) {
         Turtle turtle = new Turtle(2, 2);
         Scanner input = new Scanner(System.in);
+
+        /**
+         * Keep track of previous versions
+         * */
         Deque<Memento> undoStack = new ArrayDeque<>();
         Deque<Memento> redoStack = new ArrayDeque<>();
 
@@ -32,61 +36,73 @@ public class REPL {
             Command commandObject = null;
 
 
+            /**
+             * Filter through command options to call right one
+             * */
             switch (command) {
                 case "quit":
-                    System.out.println("QUIT");
+                    /**
+                     * Quit REPL
+                     * */
                     running = false;
                     continue;
 
                 case "show":
-                    System.out.println("SHOW");
                     commandObject = new Show();
                     break;
 
                 case "move":
-                    System.out.println("MOVE");
+                    /**
+                     * Move turtle without tracing
+                     * */
 
                     if (inputParts.length > 1) {
                         undoStack.push(turtle.saveVersion());
                         redoStack.clear();
                         int distance = Integer.parseInt(inputParts[1]);
                         commandObject = new Move(distance);
-                    } else{
+                    } else {
                         System.out.println("No distance value.");
                         continue;
                     }
                     break;
 
                 case "trace":
-                    System.out.println("TRACE");
+                    /**
+                     * Trace movement of turtle
+                     * */
 
                     if (inputParts.length > 1) {
                         undoStack.push(turtle.saveVersion());
                         redoStack.clear();
                         int distanceT = Integer.parseInt(inputParts[1]);
                         commandObject = new Trace(distanceT);
-                    } else{
+                    } else {
                         System.out.println("No distance value.");
                         continue;
                     }
                     break;
 
                 case "turn":
-                    System.out.println("TURN");
+                    /**
+                     * Update turtles direction
+                     * */
 
                     if (inputParts.length > 1) {
                         undoStack.push(turtle.saveVersion());
                         redoStack.clear();
                         double angle = Double.parseDouble(inputParts[1]);
                         commandObject = new Turn(angle);
-                    } else{
+                    } else {
                         System.out.println("No angle value.");
                         continue;
                     }
                     break;
 
                 case "undo":
-
+                    /**
+                     * Go back in undo stack and add to redo stack
+                     * */
                     if (!undoStack.isEmpty()) {
                         Memento current = turtle.saveVersion();
                         redoStack.push(current);

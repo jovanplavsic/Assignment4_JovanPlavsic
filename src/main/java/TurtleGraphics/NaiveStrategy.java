@@ -6,10 +6,11 @@
 
 package TurtleGraphics;
 
+/** Draws line from one position to another  */
 public class NaiveStrategy implements DrawingStrategy {
     @Override
     public void drawLine(Matrix m, double x0, double y0, double x1, double y1) {
-        // If a vertical line
+        /** If a vertical line */
         if (x0 == x1) {
             double startY = Math.min(y0, y1);
             double endY = Math.max(y0, y1);
@@ -19,7 +20,7 @@ public class NaiveStrategy implements DrawingStrategy {
             return;
         }
 
-        // If not a vertical line
+        /** If not a vetical line */
         double slope = (y1 - y0) / (x1 - x0);
         double startX = Math.min(x0, x1);
         double endX = Math.max(x0, x1);

@@ -8,6 +8,7 @@ package TurtleGraphics.Commands;
 
 import TurtleGraphics.Turtle;
 
+/** Represents a command that turtle performs */
 public interface Command {
     void execute(Turtle turtle);
 }

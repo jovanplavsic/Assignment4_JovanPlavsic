@@ -7,7 +7,7 @@
 package TurtleGraphics;
 import TurtleGraphics.Commands.Command;
 
-
+/** Applies CompositePattern to display SE 350 */
 public class CompositeTest {
     public static void main(String[] args) {
         int rows = 20;

@@ -11,6 +11,7 @@ import TurtleGraphics.Turtle;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Collects multiple commands to implement when execute() is called on this object */
 public class CompositeCommand implements Command {
     private final List<Command> subCommands;
 

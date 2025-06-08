@@ -8,6 +8,7 @@ package TurtleGraphics.Commands;
 
 import TurtleGraphics.Turtle;
 
+/** Display the matrix at current state */
 public class Show implements Command {
     @Override
     public void execute(Turtle turtle){

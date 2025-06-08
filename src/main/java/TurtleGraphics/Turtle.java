@@ -7,9 +7,12 @@
 package TurtleGraphics;
 
 public class Turtle {
-    //The turtle has 3 attributes: a
-    //two-dimensional location, a direction, and a pen; it is helpful, to represent the turtle location and
-    //direction with double. The pen is drawing when it is down, not drawing when it is up.
+    /**
+     * The turtle has 3 attributes: a
+     * two-dimensional location, a direction, and a pen; it is helpful, to represent the turtle location
+     * and direction with double. The pen is drawing when it is down, not drawing when it is up.
+     * */
+
 
     public int row;
     public int col;
@@ -18,6 +21,12 @@ public class Turtle {
     public Matrix matrix;
     public String prevVal = "   ";
 
+    /**
+     * @rows and @cols define how big the matrix is
+     * Turtle always starts at (0, 0), NaiveStrategy, with " # " brush
+     * Turtle is represented as " @ " on matrix
+     * prevVal keeps track of waht value is supposed to be underneath turtle
+     * */
     public Turtle(int rows, int cols) {
         this.dir = 0.0;
         this.row = 0;
@@ -27,7 +36,9 @@ public class Turtle {
         matrix.setCell(this.row, this.col, " @ ");
     }
 
-
+    /**
+     * Column, Row, Dir, getters and setters
+     * */
     public int getCol() {
         return this.col;
     }
@@ -40,10 +51,19 @@ public class Turtle {
         return this.dir;
     }
 
+    public void setDirection(double newDir) {
+        this.dir = newDir;
+    }
+
     public Matrix getMatrix() {
         return this.matrix;
     }
 
+    /**
+     * Update turtle location
+     * Set previous location to value that was before it
+     * update prevValue
+     * */
     public void setPosition(double newRow, double newCol) {
         matrix.setCell(this.row, this.col, prevVal);
 
@@ -59,10 +79,9 @@ public class Turtle {
         matrix.setCell(this.row, this.col, " @ ");
     }
 
-    public void setDirection(double newDir) {
-        this.dir = newDir;
-    }
-
+    /**
+     * Save a memento (snapshot) of matrix at point of being called
+     * */
     public Memento saveVersion() {
 
         String[][] copy = new String[matrix.rows][matrix.cols];
@@ -76,6 +95,9 @@ public class Turtle {
         return new Memento(this.row, this.col, this.dir, copyMatrix);
     }
 
+    /**
+     * Restore previous version of matrix that is passed through to it as argument
+     * */
     public void restoreVersion(Memento version){
         this.col = version.getCol();
         this.row = version.getRow();

@@ -8,6 +8,7 @@ package TurtleGraphics.Commands;
 
 import TurtleGraphics.Turtle;
 
+/** Turn turtle clockwise direction using degrees */
 public class Turn implements Command {
     private final double angle;
 
@@ -15,6 +16,10 @@ public class Turn implements Command {
         this.angle = angle;
     }
 
+    /** Can only rotate clockwise
+     *  Converts degrees to 0-1 value
+     *  0 is facing East (Right)
+     * */
     @Override
     public void execute(Turtle turtle){
         double newDir = (turtle.getDir() + angle) % 360.0;
