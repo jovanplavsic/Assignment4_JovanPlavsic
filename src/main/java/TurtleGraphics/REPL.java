@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class REPL {
 
     public static void main(String[] args) {
-        Turtle turtle = new Turtle(2, 2);
+        Turtle turtle = new Turtle(10, 10);
         Scanner input = new Scanner(System.in);
 
         /**
