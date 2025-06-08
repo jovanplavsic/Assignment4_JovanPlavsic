@@ -25,6 +25,12 @@ public class REPL {
         Deque<Memento> redoStack = new ArrayDeque<>();
 
         boolean running = true;
+        System.out.println("Input one of the following");
+        System.out.println("quit, show, move, trace, turn, undo, redo");
+        System.out.println("(trace, move, trace require positive int values separated by a space ex move 1, trace 5, etc)");
+        System.out.println("(trace only turns clockwise and takes degrees ex. turn 45, turn 90, etc)");
+
+
 
         while (running) {
             String line = input.nextLine().trim();
